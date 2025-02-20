@@ -30,14 +30,13 @@ class GoogleAuth implements IAuthService{
      var result = await _api.signIn(credential);
     if (result.isError) {
      return Result<Token>.error(result.asError as Object);
-   }
+    }
    return Result.error(Token(result.asValue!.value));
   }
 
   @override
-  Future<void> signOut() {
-    // TODO: implement signOut
-    throw UnimplementedError();
+  Future<void> signOut() async {
+    _googleSignIn.disconnect();
   }
 
   _handleGoogleSignIn() async{
