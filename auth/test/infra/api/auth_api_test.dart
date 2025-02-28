@@ -61,6 +61,7 @@ void main(){
       var result = await sut.signIn(credential);
 
       //assert
+      
       expect(result, tokenStr);
 
     });
